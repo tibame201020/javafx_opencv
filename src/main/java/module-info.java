@@ -10,6 +10,7 @@ module com.example.opencv {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires opencv;
 
     opens com.example.opencv to javafx.fxml;
     exports com.example.opencv;
