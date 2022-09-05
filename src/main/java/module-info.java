@@ -11,9 +11,11 @@ module com.example.opencv {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires opencv;
+    requires java.desktop;
 
     opens com.example.opencv to javafx.fxml;
     exports com.example.opencv;
     exports com.example.opencv.controller;
+
     opens com.example.opencv.controller to javafx.fxml;
 }
