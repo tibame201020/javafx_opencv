@@ -1,5 +1,6 @@
 package com.example.opencv.controller;
 
+import com.example.opencv.util.CompareImg;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import nu.pattern.OpenCV;
@@ -28,8 +29,8 @@ public class MainController {
     void onSnapShot() throws Exception {
         OpenCV.loadLocally();
 
-        // screenshot
-        getSnapshot();
+        float percent = CompareImg.compareImg("snap1662367233567.png", "snap1662367785959.png");
+        System.out.println("percent = " + percent);
 
     }
 
@@ -48,6 +49,7 @@ public class MainController {
 
             BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
+
             Graphics graphics = image.createGraphics();
             graphics.drawImage(screenCapture, 0, 0, width, height, null);
 
@@ -59,9 +61,8 @@ public class MainController {
 
     private void writeImage(BufferedImage image, String fileLocation, String extension) {
         try {
-            BufferedImage bufferedImage = image;
             File output = new File(fileLocation);
-            ImageIO.write(bufferedImage, extension, output);
+            ImageIO.write(image, extension, output);
         } catch (Exception e) {
             e.printStackTrace();
         }
