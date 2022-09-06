@@ -13,6 +13,7 @@ module com.example.opencv {
     requires opencv;
     requires java.desktop;
 
+
     opens com.example.opencv to javafx.fxml;
     exports com.example.opencv;
     exports com.example.opencv.controller;
